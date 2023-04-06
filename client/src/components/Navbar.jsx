@@ -33,7 +33,7 @@ const Navbar = () => {
             {darkMode?<BsSun/>:<BsFillMoonFill/>}
         </div>
         <div className='mr-5 cursor-pointer'>
-            <AiFillGithub/>
+            <a href="https://github.com/Aarize29/chicken_69"><AiFillGithub/></a>
         </div>
       </div>
     </div>
