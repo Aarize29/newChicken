@@ -5,7 +5,7 @@ import './Navbar.css'
 import { Link } from 'react-router-dom'
 const Navbar = () => {
     const [darkMode,setDarkMode]=useState(true)
-    const [theme,setTheme]=useState('light')
+    const [theme,setTheme]=useState('light-theme')
     const handleDarkmode = () => {  
         setDarkMode(!darkMode)
         if (darkMode) {
