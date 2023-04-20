@@ -1,6 +1,10 @@
 import React, {useState} from 'react'
 import './MainPart.css'
 import ChatBot from './ChatBot'
+import "@tensorflow/tfjs-backend-webgl";
+import "@tensorflow/tfjs-backend-cpu";
+import * as tf from '@tensorflow/tfjs';
+
 const MainPart = () => {
   const [imageUpload, setImageUpload] = useState(null)
   const [form,setForm]=useState({
@@ -8,6 +12,7 @@ const MainPart = () => {
       prompt:'',
       photo:'',
   })
+  console.log(imageUpload)
   const handleUpload = (e) => {
     const file=e.target.files[0]
     setImageUpload(file);
@@ -37,7 +42,7 @@ const MainPart = () => {
          <h1 className='text-2xl mb-10  font-bold'>Upload image to detect disease</h1>
          <form className='flex flex-col items-center justify center' onSubmit={handlPrediction}>
           <div className='text-xl flex justify-center items-center  border-[black] w-[500px] h-[300px] border-solid border-2 rounded-[15px]'>
-           {form.photo ? <img src={form.photo} alt="uploaded" className='border-[black] w-[500px] h-[300px] border-solid border-2 rounded-[15px]'/> : <h1 className='text-2xl font-bold'>No Image Uploaded</h1>}
+           {form.photo ? <img src={form.photo} alt="uploaded" className='border-[black] w-[500px] h-[299px] border-solid border-2 w-[500px] h-[300px] border-solid border-2 rounded-[15px]'/> : <h1 className='text-2xl font-bold'>No Image Uploaded</h1>}
           </div>
           <div className='flex'>
                 <label htmlFor="photo" className="cursor-pointer">
