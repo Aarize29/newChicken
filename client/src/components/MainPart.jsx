@@ -12,7 +12,7 @@ const MainPart = () => {
       prompt:'',
       photo:'',
   })
-  console.log(imageUpload)
+  
   const handleUpload = (e) => {
     const file=e.target.files[0]
     setImageUpload(file);
@@ -32,8 +32,9 @@ const MainPart = () => {
       setForm({...form,[e.target.name]:e.target.value})
   }
   const handlPrediction=(e)=>{
-    e.preventDefault()
-    alert("Prediction Started")
+    
+    
+
   }
   
   return (
