@@ -41,7 +41,7 @@ const Navbar = () => {
             {darkMode?<BsSun/>:<BsFillMoonFill/>}
         </div>
         <div className='mr-5 cursor-pointer'>
-            <a href="https://github.com/kausthub-kannan/agro_scan"><AiFillGithub/></a>
+            <a href="https://github.com/Aarize29/chicken_69"><AiFillGithub/></a>
         </div>
       </div>
     </div>
