@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import './Dashboard.css'
+import Piechart from '../../components/charts/Piechart'
 const Dashborad = () => {
    // Sample datas
    const plantdata = [
@@ -114,6 +115,8 @@ const Dashborad = () => {
       </div>
     </div>
         )}
+
+        <Piechart/>
     </div>
   )
 }
