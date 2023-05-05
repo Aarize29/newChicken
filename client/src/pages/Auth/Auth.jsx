@@ -79,13 +79,13 @@ const Auth = (params) => {
       <form>
         {params.title == "SignUp" ? (
           <>
-            <div className="flex items-center justify-center min-h-screen bg-gray-100 m-auto w-full">
-              <div className="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3">
-                <h3 className="text-2xl font-bold text-center">Sign Up</h3>
+            <div className="flex items-center justify-center min-h-screen bg-gray-300 m-auto w-full">
+              <div className="px-8 py-6 mx-4 mt-4 text-left bg-gray-100 rounded-xl shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3">
+                <h3 className="text-2xl font-bold text-center text-[#115e59]">Sign Up</h3>
                 <div>
                   <div className="mt-4">
                     <div>
-                      <label className="block">
+                      <label className="block text-lg text-[#0f766e]">
                         Name
                         <label>
                           <input
@@ -101,7 +101,7 @@ const Auth = (params) => {
                       </label>
                     </div>
                     <div className="mt-4">
-                      <label className="block">
+                      <label className="block text-lg text-[#0f766e]">
                         Email
                         <label>
                           <input
@@ -117,7 +117,7 @@ const Auth = (params) => {
                       </label>
                     </div>
                     <div className="mt-4">
-                      <label className="block">
+                      <label className="block text-lg text-[#0f766e]">
                         Password
                         <label>
                           <input
@@ -133,7 +133,7 @@ const Auth = (params) => {
                       </label>
                     </div>
                     <div className="mt-4">
-                      <label className="block">
+                      <label className="block text-lg text-[#0f766e]">
                         State
                         <label>
                           <input
@@ -149,7 +149,7 @@ const Auth = (params) => {
                       </label>
                     </div>
                     <div className="mt-4">
-                      <label className="block">
+                      <label className="block text-lg text-[#0f766e]">
                         City
                         <label>
                           <input
@@ -168,7 +168,7 @@ const Auth = (params) => {
                       
                         <button
                           onClick={handleRegister}
-                          className="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"
+                          className="w-full px-6 py-2 mt-4 text-white bg-[#14b8a6] rounded-lg hover:bg-[#0f766e]"
                         >
                           Create Account
                         </button>
@@ -177,10 +177,10 @@ const Auth = (params) => {
                     <div className="mt-6 text-grey-dark">
                       Already have an account?
                       <a
-                        className="text-blue-600 hover:underline"
-                        href="/login"
+                        className="text-[#14b8a6] hover:underline"
+                        href="/"
                       >
-                        Log in
+                        Log In
                       </a>
                     </div>
                   </div>
@@ -189,14 +189,14 @@ const Auth = (params) => {
             </div>
           </>
         ) : (
-            <div className="flex items-center justify-center min-h-screen bg-gray-100 m-auto w-full">
-            <div className="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3">
-              <h3 className="text-2xl font-bold text-center">Log in</h3>
+            <div className="flex items-center justify-center min-h-screen bg-gray-300 m-auto w-full">
+            <div className="px-8 py-6 mx-4 mt-4 text-left bg-gray-100 rounded-xl shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3">
+              <h3 className="text-2xl font-bold text-[#115e59] text-center">Log In</h3>
               <div>
                 <div className="mt-4">
                   
                   <div className="mt-4">
-                    <label className="block">
+                    <label className="block text-lg text-[#0f766e]">
                       Email
                       <label>
                         <input
@@ -212,7 +212,7 @@ const Auth = (params) => {
                     </label>
                   </div>
                   <div className="mt-4">
-                    <label className="block">
+                    <label className="block text-lg text-[#0f766e]">
                       Password
                       <label>
                         <input
@@ -232,16 +232,16 @@ const Auth = (params) => {
                     
                       <button
                         onClick={handleSignIn}
-                        className="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"
+                        className="w-full px-6 py-2 mt-4 text-white bg-[#14b8a6] rounded-lg hover:bg-[#0f766e]"
                       >
-                        Log in
+                        Log In
                       </button>
                     
                   </div>
                   <div className="mt-6 text-grey-dark">
                     Don't have an account?
                     <a
-                      className="text-blue-600 hover:underline"
+                      className="text-[#14b8a6] hover:underline"
                       href="/signup"
                     >
                       Sign Up

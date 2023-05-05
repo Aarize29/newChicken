@@ -52,7 +52,7 @@ const Navbar = () => {
             <a href="https://github.com/Aarize29/chicken_69"><AiFillGithub/></a>
         </div>
       <div className='text-sm text-xl font-bold'>
-        <button className='w-full px-6 py-2 mt-4 text-white bg-[#0c4a6e] mb-2 rounded-lg hover:bg-blue-900' onClick={handleLogout}>Logout</button>
+        <button className='w-full px-6 py-2 mt-4 text-white bg-[#14b8a6] mb-2 rounded-lg hover:bg-[#0f766e]' onClick={handleLogout}>Logout</button>
       </div>
       </div>
     </div>
