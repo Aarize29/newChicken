@@ -4,7 +4,7 @@ import{BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import Home from './pages/Home/Home'
 import MainPart from "./pages/Prediction/MainPart"
 import Auth from './pages/Auth/Auth'
-import Navbar from './components/navbar/Navbar'
+import Navbar from './components/navBar/Navbar'
 import Dashborad from './pages/Dashborad'
 function App() {
 

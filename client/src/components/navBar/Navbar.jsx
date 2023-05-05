@@ -25,7 +25,7 @@ const Navbar = () => {
   return (
     <div className='navbar flex justify-between w-full pr-10 lg:pl-12 pt-10 border-b-2 border-sky-900 border-solid items-center shadow-xl text-1xl lg:text-3xl md:text-2xl shadow-black-900 items-center '>
       <div className='font-bold'>
-        <Link to='/'>Chicken 69</Link>
+        <Link to='/'>Chicken 65</Link>
       </div>
       <div className=' font-bold'>
         <button onClick={() => signOut()}>Logout</button>
