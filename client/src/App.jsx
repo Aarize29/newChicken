@@ -13,8 +13,8 @@ function App() {
     <Router>
       <Navbar/>
       <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/login' element={<Auth title="SignIn"/>}/>
+        <Route path='/home' element={<Home/>}/>
+        <Route path='/' element={<Auth title="SignIn"/>}/>
         <Route path='/signup' element={<Auth title="SignUp"/>}/>
         <Route path='/main' element={<MainPart/>}/>
         <Route path='/dashboard' element={<Dashborad/>}/>

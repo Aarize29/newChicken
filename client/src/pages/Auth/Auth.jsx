@@ -1,27 +1,78 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Row, Col, Card, Button, Form, Input } from "antd";
-import { signInWithEmail, signUpWithEmail } from "../../supabase/auth";
-import uuid from "react-uuid";
+import React, { useState,useEffect } from 'react'
+import {useNavigate } from "react-router-dom";
+import {signInWithEmailAndPassword,onAuthStateChanged, createUserWithEmailAndPassword} from 'firebase/auth'
+import "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore"; 
+import {db} from '../../firebase'
+import {auth} from '../../firebase'
 
 const Auth = (params) => {
-  const navigate = useNavigate();
-  const [data, setData] = useState({ email: "", password: "" });
 
+
+  const navigate = useNavigate();
+  const [data, setData] = useState({ 
+    email: "",
+    password: "",
+    name: "",
+    state: "",
+    city: "",
+});
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            navigate('/home')
+        }
+    })
+}, [])
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-
-  const handleSubmit = async (e) => {
+  
+  const handleSignIn = async (e) => {
     e.preventDefault();
-    if (params.title == "SignUp") {
-      const response = await signUpWithEmail(data);
-      console.log(response);
-    } else {
-      const response = await signInWithEmail(data);
-      if (response.status == 200) navigate("/main");
+    signInWithEmailAndPassword(auth,data.email, data.password).then(()=>{
+        navigate('/home')
+    }).catch((error) => {
+        alert(error.message)
+    })
+}
+
+   const addUser = async(e) => {
+    try{
+      const userdata= await addDoc(collection(db, "user"), {
+        name: data.name,
+        email: data.email,
+        state: data.state,
+        city: data.city
+       });
+        alert("User added to database")
+    }catch{
+      ((error) => {
+        alert(error.message)
+    })
+  }}
+
+
+  const handleRegister = async(e) => {
+    e.preventDefault();
+    try {
+      const { user } = await createUserWithEmailAndPassword(auth, data.email, data.password);
+
+      // await firebase.firestore().collection("users").doc(user.uid).set({
+      //   name:data.name,
+      //   city:data.city,
+      //   state:data.state,
+      //   email:data.email,
+      // });
+      addUser()
+      navigate('/home')
+    } catch (error) {
+      console.error(error);
     }
-  };
+
+
+}
 
   return (
     <div>
@@ -43,6 +94,7 @@ const Auth = (params) => {
                             onChange={(e) => handleChange(e)}
                             value={data.name}
                             name="name"
+                            required
                             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                           />
                         </label>
@@ -58,6 +110,7 @@ const Auth = (params) => {
                             onChange={(e) => handleChange(e)}
                             value={data.email}
                             name="email"
+                            required
                             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                           />
                         </label>
@@ -72,6 +125,7 @@ const Auth = (params) => {
                             value={data.password}
                             name="password"
                             type="Password"
+                            required
                             placeholder="Password"
                             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                           />
@@ -87,6 +141,7 @@ const Auth = (params) => {
                             value={data.state}
                             name="state"
                             type="text"
+                            required
                             placeholder="State"
                             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                           />
@@ -102,37 +157,22 @@ const Auth = (params) => {
                             value={data.city}
                             name="city"
                             type="text"
+                            required
                             placeholder="City"
                             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                           />
                         </label>
                       </label>
                     </div>
-                    <div className="mt-4">
-                      <label className="block">
-                        Mobile
-                        <label>
-                          <input
-                            onChange={(e) => handleChange(e)}
-                            value={data.mobile}
-                            name="mobile"
-                            type="number"
-                            placeholder="Mobile"
-                            className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                          />
-                        </label>
-                      </label>
-                    </div>
-
                     <div className="flex">
-                      <a href="/login">
+                      
                         <button
-                          onClick={handleSubmit}
+                          onClick={handleRegister}
                           className="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"
                         >
                           Create Account
                         </button>
-                      </a>
+                      
                     </div>
                     <div className="mt-6 text-grey-dark">
                       Already have an account?
@@ -165,6 +205,7 @@ const Auth = (params) => {
                           onChange={(e) => handleChange(e)}
                           value={data.email}
                           name="email"
+                          required
                           className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                         />
                       </label>
@@ -179,6 +220,7 @@ const Auth = (params) => {
                           value={data.password}
                           name="password"
                           type="Password"
+                          required
                           placeholder="Password"
                           className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                         />
@@ -189,7 +231,7 @@ const Auth = (params) => {
                   <div className="flex">
                     
                       <button
-                        onClick={handleSubmit}
+                        onClick={handleSignIn}
                         className="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"
                       >
                         Log in
