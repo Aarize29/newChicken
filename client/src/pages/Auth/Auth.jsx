@@ -76,7 +76,7 @@ const Auth = (params) => {
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleRegister}>
         {params.title == "SignUp" ? (
           <>
             <div className="flex items-center justify-center min-h-screen bg-gray-300 m-auto w-full">
@@ -166,8 +166,8 @@ const Auth = (params) => {
                     </div>
                     <div className="flex">
                       
-                        <button
-                          onClick={handleRegister}
+                        <button type="submit"
+                          // onClick={handleRegister}
                           className="w-full px-6 py-2 mt-4 text-white bg-[#14b8a6] rounded-lg hover:bg-[#0f766e]"
                         >
                           Create Account

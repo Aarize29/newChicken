@@ -1,15 +1,11 @@
 import React, {useState} from 'react'
 import './MainPart.css'
 import ChatBot from "/src/components/ChatBot/ChatBot"
-import "@tensorflow/tfjs-backend-webgl";
-import "@tensorflow/tfjs-backend-cpu";
-import NavBar from "/src/components/NavBar/Navbar"
-import * as tf from '@tensorflow/tfjs';
-import db from '/src/firebase'
+import db from '../../../firebase'
 import { collection, addDoc } from "firebase/firestore"; 
 
 
-const PlantMainPart = () => {
+const ChickenMainPart = () => {
   const [imageUpload, setImageUpload] = useState(null)
   const [form,setForm]=useState({
       name:'',
@@ -55,7 +51,7 @@ const PlantMainPart = () => {
       {/* <NavBar /> */}
       <div className='main flex lg:flex-row flex-col    justify-between mt-10 lg:mt-5'>
        <div className="model flex flex-col  justify-center items-center  lg:w-[950px]  lg:h-[600px] border-solid border-[2px] lg:m-3 m-5 ">
-         <h1 className='lg:text-2xl text-1xl mb-10  font-bold'>Upload image to plant detect disease</h1>
+         <h1 className='lg:text-2xl text-1xl mb-10  font-bold'>Upload image to detect chicken disease</h1>
          <form className='flex flex-col items-center justify center' onSubmit={handlPrediction}>
           <div className='lg:text-xl text-1xl flex justify-center items-center   md:w-[500px] md:h-[300px] border-solid border-2 rounded-[15px]'>
            {form.photo ? <img src={form.photo} alt="uploaded" className=' w-[400px] h-[199px]  md:w-[500px] md:h-[299px]  border-2 lg:w-[500px] lg:h-[300px] border-solid border-4 rounded:-[5px] md:rounded-[15px]'/> : <h1 className=' font-bold'>No Image Uploaded</h1>}
@@ -79,4 +75,4 @@ const PlantMainPart = () => {
   )
 }
 
-export default PlantMainPart
+export default ChickenMainPart

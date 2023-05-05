@@ -5,7 +5,9 @@ import Home from './pages/Home/Home'
 import MainPart from "./pages/Prediction/MainPart"
 import Auth from './pages/Auth/Auth'
 import Navbar from './components/navBar/Navbar'
-import Dashborad from './pages/Dashborad'
+import Dashborad from './pages/DashboardPage/Dashborad'
+import ChickenMainPart from './pages/Prediction/chicken/MainPart'
+import PlantMainPart from './pages/Prediction/MainPart'
 function App() {
 
   return (
@@ -16,7 +18,8 @@ function App() {
         <Route path='/home' element={<Home/>}/>
         <Route path='/' element={<Auth title="SignIn"/>}/>
         <Route path='/signup' element={<Auth title="SignUp"/>}/>
-        <Route path='/main' element={<MainPart/>}/>
+        <Route path='/chicken' element={<ChickenMainPart/>}/>
+        <Route path='/plant' element={<PlantMainPart/>}/>
         <Route path='/dashboard' element={<Dashborad/>}/>
       </Routes>
     </Router>

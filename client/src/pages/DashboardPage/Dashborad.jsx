@@ -61,7 +61,7 @@ const Dashborad = () => {
     <div className=" container mx-auto my-8">
         <div className="tableTitle">
         <h1 className="lg:text-2xl text-xl textcolor font-bold mb-4  flex items-center justify-center">Dashboard:-{tableTitle}</h1>
-        <button className="bg-[#6469ff] hover:text-[#6469ff] hover:bg-blue-200 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center mb-5" onClick={handleToggle}>Toggle To  {tableTitle} Table</button>
+        <button className="bg-[#0f766e] text-white hover:bg-[#14b8a6] hover:bg-blue-200 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center mb-5" onClick={handleToggle}>Toggle To  {tableTitle} Table</button>
         </div>
         {toggle?(
           <div className="bg-white shadow-md rounded-md overflow-hidden">
