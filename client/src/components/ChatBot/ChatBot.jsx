@@ -6,7 +6,7 @@ import './ChatBot.css'
 import { collection, getDocs } from "firebase/firestore"; 
 import db from '/src/firebase'
 
-const API_KEY="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"
+const API_KEY=import.meta.env.VITE_API_KEY
 
 
 const ChatBot=  ()=> {
