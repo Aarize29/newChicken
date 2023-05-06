@@ -1,4 +1,6 @@
-
+.textcolor{
+  color: var(--textcolor);
+}
 .table-auto {
     table-layout: auto;
   }

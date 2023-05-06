@@ -1,0 +1,4 @@
+.auth{
+    background: var(--authBg);
+    color: var(--authtext);
+}
