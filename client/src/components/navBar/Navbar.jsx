@@ -1,29 +1,29 @@
-import React,{useState,useEffect}from 'react'
+import React, { useState, useEffect } from 'react'
 import { AiFillGithub } from 'react-icons/ai'
-import { BsSun,BsFillMoonFill } from 'react-icons/bs'
-import {DiGoogleAnalytics} from 'react-icons/di'
+import { BsSun, BsFillMoonFill } from 'react-icons/bs'
+import { DiGoogleAnalytics } from 'react-icons/di'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
-import {signOut} from 'firebase/auth'
-import {auth} from '../../firebase'
+import { signOut } from 'firebase/auth'
+import { auth } from '../../firebase'
 import { useNavigate } from 'react-router-dom'
 const Navbar = () => {
-    const navigate = useNavigate()
-    const [darkMode,setDarkMode]=useState(true)
-    const [theme,setTheme]=useState('light-theme')
-    const handleDarkmode = () => {  
-        setDarkMode(!darkMode)
-        if (darkMode) {
-          setTheme('dark-theme')
-        }
-        else {
-          setTheme('light-theme')
-        }
+  const navigate = useNavigate()
+  const [darkMode, setDarkMode] = useState(true)
+  const [theme, setTheme] = useState('light-theme')
+  const handleDarkmode = () => {
+    setDarkMode(!darkMode)
+    if (darkMode) {
+      setTheme('dark-theme')
+    }
+    else {
+      setTheme('light-theme')
+    }
   }
   useEffect(() => {
     document.body.className = theme
   }
-  , [theme])
+    , [theme])
 
   const handleLogout = () => {
     signOut(auth).then(() => {
@@ -31,31 +31,66 @@ const Navbar = () => {
     }).catch((error) => {
       alert(error.message)
     })
-  }
 
+  }
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  function toggleMenu() {
+    setMenuOpen(!menuOpen);
+  }
   return (
-    <div className='navbar flex justify-between w-full pr-10 lg:pl-12 pt-10 border-b-2 border-sky-900 border-solid items-center shadow-xl text-1xl lg:text-3xl md:text-2xl shadow-black-900 items-center '>
-      <div className='font-bold'>
-        <Link to='/home'>Chicken 65</Link>
+
+    <nav className="flex items-center justify-between flex-wrap bg-gray-800 p-6">
+      <div className="flex items-center flex-shrink-0 text-white mr-6">
+        <Link to="/" className="font-semibold text-3xl tracking-tight hover:text-[#14b8a6]">
+          {/* <img src="/home-logo.png" alt="Home Logo" className="h-8 w-auto" /> */}
+          farmSense.ai
+        </Link>
       </div>
-      <div className='flex items-center  font-bold  '>
-        <div className='mr-5'>
-           <Link to='/home'>Home</Link>
-        </div>
-        <div className="mr-5">
-          <Link to='/dashboard'><DiGoogleAnalytics/></Link>
-        </div>
-        <div className='mr-5 cursor-pointer' onClick={handleDarkmode}>
-            {darkMode?<BsSun/>:<BsFillMoonFill/>}
-        </div>
-        <div className='mr-5 cursor-pointer'>
-            <a href="https://github.com/Aarize29/chicken_69"><AiFillGithub/></a>
-        </div>
-      <div className='text-sm text-xl font-bold'>
-        <button className='w-full px-6 py-2 mt-4 text-white bg-[#14b8a6] mb-2 rounded-lg hover:bg-[#0f766e]' onClick={handleLogout}>Logout</button>
+      <div className="block lg:hidden">
+        <button
+          className="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white"
+          onClick={toggleMenu}
+        >
+          <svg
+            className="fill-current h-3 w-3"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Menu</title>
+            <path
+              d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"
+            />
+          </svg>
+        </button>
       </div>
+      <div
+        className={`${menuOpen ? '' : 'hidden'
+          } w-full block ] lg:flex lg:items-center lg:w-auto`}
+      >
+        <div className="text-sm lg:flex-grow">
+          <Link
+            to="/home"
+            className="block mt-4 lg:inline-block lg:mt-0  text-gray-200 hover:text-[#14b8a6] mr-4 text-lg"
+          >
+            Home
+          </Link>
+        </div>
+        <div className="text-sm lg:flex-grow">
+          <Link
+            to="/dashboard"
+            className="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-[#14b8a6] mr-4 text-lg"
+          >
+            Dashboard
+          </Link>
+        </div>
+        <div>
+          <button className='block mt-4 lg:inline-block lg:mt-0 hover:text-white mr-4  px-6 py-2  text-white bg-[#14b8a6]  rounded-lg hover:bg-[#0f766e]' onClick={handleLogout}>Logout</button>
+        </div>
       </div>
-    </div>
+    </nav>
+
+
   )
 }
 
