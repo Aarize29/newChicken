@@ -22,8 +22,8 @@ const Home = () => {
       <div className='container max-w-screen-lg mx-auto px-5'>
         <div className='flex justify-between'>
           <div className=''>
-            <h1 className='mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-black'>Revolutionize your <br />crop and poultry<br />health<br />management.</h1>
-            <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Harness the power of technology to protect your crop and poultry from disease.</p>
+            <h1 className='mb-4 text-4xl font-extrabold leading-none tracking-tight headingHome  md:text-5xl lg:text-6xl dark:text-black'>Revolutionize your <br />crop and poultry<br />health<br />management.</h1>
+            <p class="text-lg font-normal parHome lg:text-xl dark:text-gray-400">Harness the power of technology to protect your crop and poultry from disease.</p>
           </div>
           <div className='mt-16 w-4/5'>
             <img src={farm} className=' rounded-3xl shadow-emerald-300 shadow-md border-2' />
@@ -37,9 +37,9 @@ const Home = () => {
             <img src={mitt} className=' rounded-3xl  shadow-emerald-300 shadow-md border-2' />
           </div>
           <div className='flex flex-col  justify-evenly h-100  ml-4'>
-            <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">With Chicken65, farmers can easily detect diseases in their crops and plants at an early stage, allowing for timely intervention and containment.</p>
+            <p class="text-lg font-normal parHome lg:text-xl dark:text-gray-400">With Chicken65, farmers can easily detect diseases in their crops and plants at an early stage, allowing for timely intervention and containment.</p>
             <div className="card cursor-pointer">
-              <Link to='/plant'><h1 className='flex rounded-lg text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400  hover:bg-green-100 shadow-emerald-300 shadow-md  justify-center border-2 border-green-400 w-56 align center' >Plant Disease Detection</h1></Link>
+              <Link to='/plant'><h1 className='flex rounded-lg text-lg font-normal parHome lg:text-xl dark:text-gray-400  hover:bg-green-100 shadow-emerald-300 shadow-md  justify-center border-2 border-green-400 w-56 align center' >Plant Disease Detection</h1></Link>
             </div>
           </div>
         </div>
@@ -50,9 +50,9 @@ const Home = () => {
             <img src={chick} className=' rounded-3xl  shadow-emerald-300 shadow-md border-2' />
           </div>
           <div className='flex flex-col  justify-evenly h-100  ml-4'>
-            <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">With Chicken65, farmers can easily detect diseases in their crops and plants at an early stage, allowing for timely intervention and containment.</p>
+            <p class="text-lg font-normal parHome lg:text-xl dark:text-gray-400">With Chicken65, farmers can easily detect diseases in their crops and plants at an early stage, allowing for timely intervention and containment.</p>
             <div className="card cursor-pointer">
-              <Link to='/chicken'><h1 className='flex rounded-lg text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400  hover:bg-green-100 shadow-emerald-300 shadow-md  justify-center border-2 border-green-400 w-60 align center' >Poultry Disease Detection</h1></Link>
+              <Link to='/chicken'><h1 className='flex rounded-lg text-lg font-normal parHome lg:text-xl dark:text-gray-400  hover:bg-green-100 shadow-emerald-300 shadow-md  justify-center border-2 border-green-400 w-60 align center' >Poultry Disease Detection</h1></Link>
             </div>
           </div>
         </div>

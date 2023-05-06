@@ -1,11 +1,13 @@
-.textcolor{
-    background-color:var(--bg);
-    color: var(--textcolor);
-}
+
 .table-auto {
     table-layout: auto;
   }
-  
+ 
+  .tableBgColor{
+    background-color: var(--tableTextBg);
+    color: var(--paraHomePage);
+    
+  }
   table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -21,8 +23,8 @@
   }
   
   th {
-    background-color: #f7fafc;
-    color: #4a5568;
+    background-color: var(--tableHeadingBg);
+    color: var(--paraHomePage);
     font-weight: 600;
   }
 

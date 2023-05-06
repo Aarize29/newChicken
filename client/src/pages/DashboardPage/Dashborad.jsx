@@ -78,7 +78,7 @@ const Dashborad = () => {
         </div>
         {toggle?(
           <>
-          <div className="bg-white shadow-md rounded-md overflow-hidden">
+          <div className="tableBgColor shadow-md rounded-md overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full table-auto">
               <thead>

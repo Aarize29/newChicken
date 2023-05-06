@@ -2,11 +2,23 @@
   --bg: #000000;
   --textcolor: #fff;
   --body:#222222;
+
+  --headingHomePage:#fff;
+  --paraHomePage:#d1d5db;
+  --dashboardHeading:#111827;
+  --tableTextBg:#23343f;
+  --tableHeadingBg:#1f2937;
 }
 .light-theme{
   --bg: #fff;
   --textcolor: #0c4a6e;
   --body:#fff;
+
+  --headingHomePage:#111827;
+  --paraHomePage:#6b7280;
+  --dashboardHeading:#fff;
+  --tableTextBg:#d2d6df;
+  --tableHeadingBg:#b1b5bd;
   
 }
   
