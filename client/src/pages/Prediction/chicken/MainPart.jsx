@@ -3,7 +3,9 @@ import './MainPart.css'
 import ChatBot from "/src/components/ChatBot/ChatBot"
 import db from '../../../firebase'
 import { collection, addDoc } from "firebase/firestore"; 
+import {TbMessageChatbot} from 'react-icons/tb'
 
+import Popup from '../../../components/popupchatbot/Popup';
 
 const ChickenMainPart = () => {
   const [imageUpload, setImageUpload] = useState(null)
@@ -13,6 +15,12 @@ const ChickenMainPart = () => {
       photo:'',
   })
   const [predictedDisease,setPredictedDisease]=useState("No Disease")
+
+  const [buttonPopup, setButtonPopup] = useState(false)
+ 
+  const view=()=>{
+    setButtonPopup(true);
+  }
 
   console.log(imageUpload)
   const handleUpload = (e) => {
@@ -51,7 +59,7 @@ const ChickenMainPart = () => {
     <>
       {/* <NavBar /> */}
       <div className='main flex lg:flex-row flex-col    justify-between mt-10 lg:mt-5'>
-       <div className="model flex flex-col  justify-center items-center  lg:w-[950px]  lg:h-[600px] border-solid border-[2px] lg:m-3 m-5 ">
+       <div className="model flex flex-col  justify-center items-center   lg:w-[950px]  lg:h-[600px] lg:border-solid border-[2px] lg:m-3 m-5 ">
          <h1 className='lg:text-2xl text-1xl mb-10  font-bold'>Upload image to detect chicken disease</h1>
          <form className='flex flex-col items-center justify center' onSubmit={handlPrediction}>
           <div className='lg:text-xl text-1xl flex justify-center items-center   md:w-[500px] md:h-[300px] border-solid border-2 rounded-[15px]'>
@@ -67,10 +75,30 @@ const ChickenMainPart = () => {
             </form>
            <h1 className='lg:text-2xl text-1xl font-bold  m-5'>{predictedDisease}</h1>
        </div>
+       <div className='hidden lg:block'>
        <h1 className="font-bold flex justify-center lg:hidden">
           HelperBot
        </h1>
        <ChatBot/>
+       </div>
+       {/* for mobile */}
+       <div className=' flex lg:hidden justify-end mr-10 text-2xl' >
+         <button onClick={view} className='flex'>
+          <TbMessageChatbot/> <h1 className='text-sm'>HelperBot</h1>
+          </button> 
+       </div>
+
+
+       {/*Pop */}
+       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}  >
+       <div className="flex flex-col  justify-center  items-center lg:hidden">
+       <h1 className='text-xl font-bold text-gray-700 flex justify-center'>Helper Bot</h1>
+
+        <div className='w-[350px] h-[400px] flex justify-center items-center '>
+          <ChatBot/>
+        </div>
+       </div>
+</Popup>
     </div>
     </>
   )
