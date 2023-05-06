@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import './Dashboard.css'
-import Piechart from '../../components/charts/Piechart'
+import PiechartChicken from '../../components/charts/chickenCharts/Piechart';
+import PiechartPlant from '../../components/charts/plantCharts/Piechart';
+import barChartChicken from '../../components/charts/chickenCharts/barChart';
 const Dashborad = () => {
    // Sample datas
    const plantdata = [
@@ -65,6 +67,7 @@ const Dashborad = () => {
         <button className="bg-[#0f766e] text-white hover:bg-[#14b8a6] hover:bg-blue-200 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center mb-5" onClick={handleToggle}>Toggle To  {tableTitle} Table</button>
         </div>
         {toggle?(
+          <>
           <div className="bg-white shadow-md rounded-md overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full table-auto">
@@ -89,7 +92,10 @@ const Dashborad = () => {
             </table>
           </div>
         </div>
+        <PiechartPlant/>
+        </>
         ):(
+          <>
           <div className="bg-white shadow-md rounded-md overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full table-auto">
@@ -114,9 +120,14 @@ const Dashborad = () => {
         </table>
       </div>
     </div>
+        <div>
+        <PiechartChicken/>
+        <barChartChicken/>
+        </div>
+        </>
         )}
 
-        <Piechart/>
+        
     </div>
   )
 }

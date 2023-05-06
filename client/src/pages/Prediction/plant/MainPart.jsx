@@ -43,8 +43,9 @@ const MainPart = () => {
   const handlPrediction= async(e)=>{
     e.preventDefault()
     
-    const data=await addDoc(collection(db, "disease"), {
-      name:predictedDisease
+    const data=await addDoc(collection(db, "plantdisease"), {
+      name:predictedDisease,
+      time: new Date().toLocaleString()
     });
 
     alert("Prediction added to database")

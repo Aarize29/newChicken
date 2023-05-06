@@ -39,8 +39,9 @@ const ChickenMainPart = () => {
   const handlPrediction= async(e)=>{
     e.preventDefault()
     
-    const data=await addDoc(collection(db, "disease"), {
-      name:predictedDisease
+    const data=await addDoc(collection(db, "chickendisease"), {
+      name:predictedDisease,
+      time: new Date().toLocaleString()
     });
 
     alert("Prediction added to database")
