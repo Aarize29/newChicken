@@ -1,9 +1,19 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import './Dashboard.css'
+import { useNavigate } from 'react-router-dom';
 import PiechartChicken from '../../components/charts/chickenCharts/Piechart';
 import PiechartPlant from '../../components/charts/plantCharts/Piechart';
-import barChartChicken from '../../components/charts/chickenCharts/barChart';
+import { auth } from '../../firebase';
 const Dashborad = () => {
+  const navigate = useNavigate()
+   
+  useEffect(() => { 
+    if(!auth.currentUser){
+      navigate('/')
+    }
+    
+
+  }, [])
    // Sample datas
    const plantdata = [
     {
